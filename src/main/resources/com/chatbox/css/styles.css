@@ -1,0 +1,849 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Chatbox - A Complete Companion
+   Design System: Dark charcoal/navy surfaces · Violet accent · Clean type
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Colour tokens ──────────────────────────────────────────────────────── */
+.root {
+    /* Surfaces */
+    -cb-bg-base:        #0d0f14;
+    -cb-bg-surface:     #13161d;
+    -cb-bg-elevated:    #1a1e28;
+    -cb-bg-overlay:     #20253200;
+
+    /* Sidebar */
+    -cb-sidebar-bg:     #0f1118;
+    -cb-sidebar-border: #1e2233;
+
+    /* Accent */
+    -cb-accent:         #7c6ff7;
+    -cb-accent-hover:   #9388fa;
+    -cb-accent-dim:     #3a3566;
+    -cb-accent-text:    #c4beff;
+
+    /* Semantic */
+    -cb-success:        #3ecf5e;
+    -cb-warning:        #f0a23c;
+    -cb-error:          #e05555;
+    -cb-info:           #4db8ff;
+
+    /* Text */
+    -cb-text-primary:   #e8eaf0;
+    -cb-text-secondary: #8891a8;
+    -cb-text-muted:     #4d5468;
+    -cb-text-inverse:   #0d0f14;
+
+    /* Borders */
+    -cb-border:         #1e2334;
+    -cb-border-active:  #7c6ff7;
+
+    /* Mood colours */
+    -cb-mood-1: #e05555;
+    -cb-mood-2: #e07a35;
+    -cb-mood-3: #f0a23c;
+    -cb-mood-4: #a8c93a;
+    -cb-mood-5: #3ecf5e;
+
+    -fx-font-family: "Segoe UI", "Inter", "Helvetica Neue", sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: -cb-bg-base;
+}
+
+/* ── Base ───────────────────────────────────────────────────────────────── */
+.label {
+    -fx-text-fill: -cb-text-primary;
+    -fx-font-size: 13px;
+}
+
+.text-area, .text-field {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-border-color: -cb-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-text-fill: -cb-text-primary;
+    -fx-prompt-text-fill: -cb-text-muted;
+    -fx-highlight-fill: -cb-accent-dim;
+    -fx-focus-color: -cb-accent;
+    -fx-faint-focus-color: transparent;
+    -fx-padding: 8 10 8 10;
+}
+
+.text-area:focused, .text-field:focused {
+    -fx-border-color: -cb-accent;
+    -fx-background-color: -cb-bg-elevated;
+}
+
+.text-area .content {
+    -fx-background-color: -cb-bg-elevated;
+}
+
+/* ── Scroll pane ────────────────────────────────────────────────────────── */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: -cb-border;
+    -fx-background-radius: 4px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: -cb-text-muted;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: transparent;
+    -fx-shape: "";
+    -fx-padding: 0;
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────────────── */
+.sidebar {
+    -fx-background-color: -cb-sidebar-bg;
+    -fx-border-color: -cb-sidebar-border;
+    -fx-border-width: 0 1 0 0;
+    -fx-min-width: 220px;
+    -fx-max-width: 220px;
+    -fx-pref-width: 220px;
+}
+
+.sidebar-logo-area {
+    -fx-padding: 20 16 16 16;
+    -fx-border-color: transparent transparent -cb-sidebar-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.app-name {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -cb-text-primary;
+    -fx-letter-spacing: 0.5px;
+}
+
+.app-subtitle {
+    -fx-font-size: 10px;
+    -fx-text-fill: -cb-text-muted;
+    -fx-letter-spacing: 1px;
+}
+
+.sidebar-section-label {
+    -fx-font-size: 9px;
+    -fx-text-fill: -cb-text-muted;
+    -fx-padding: 14 16 4 16;
+    -fx-letter-spacing: 1.5px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: -cb-text-secondary;
+    -fx-font-size: 13px;
+    -fx-padding: 8 16 8 16;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-graphic-text-gap: 10;
+    -fx-min-width: 220px;
+    -fx-max-width: 220px;
+    -fx-pref-width: 220px;
+}
+
+.sidebar-item:hover {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-text-fill: -cb-text-primary;
+}
+
+.sidebar-item.active {
+    -fx-background-color: -cb-accent-dim;
+    -fx-text-fill: -cb-accent-text;
+    -fx-border-color: -cb-accent transparent transparent transparent;
+    -fx-border-width: 0 0 0 2;
+    -fx-padding: 8 16 8 14;
+}
+
+.sidebar-footer {
+    -fx-padding: 12 16;
+    -fx-border-color: -cb-sidebar-border transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.ai-status-dot {
+    -fx-font-size: 11px;
+    -fx-text-fill: -cb-text-muted;
+}
+
+.ai-status-live {
+    -fx-text-fill: -cb-success;
+}
+
+.ai-status-demo {
+    -fx-text-fill: -cb-warning;
+}
+
+/* ── Content area ───────────────────────────────────────────────────────── */
+.content-area {
+    -fx-background-color: -cb-bg-base;
+}
+
+.page-header {
+    -fx-padding: 24 28 16 28;
+    -fx-border-color: transparent transparent -cb-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.page-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -cb-text-primary;
+}
+
+.page-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: -cb-text-secondary;
+}
+
+.page-body {
+    -fx-padding: 20 28;
+}
+
+/* ── Buttons ────────────────────────────────────────────────────────────── */
+.btn {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-text-fill: -cb-text-primary;
+    -fx-border-color: -cb-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 7 16 7 16;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-focus-color: -cb-accent;
+    -fx-faint-focus-color: transparent;
+}
+
+.btn:hover {
+    -fx-background-color: -cb-border;
+    -fx-text-fill: -cb-text-primary;
+}
+
+.btn-primary {
+    -fx-background-color: -cb-accent;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+    -fx-font-weight: bold;
+}
+
+.btn-primary:hover {
+    -fx-background-color: -cb-accent-hover;
+}
+
+.btn-danger {
+    -fx-background-color: transparent;
+    -fx-text-fill: -cb-error;
+    -fx-border-color: -cb-error;
+}
+
+.btn-danger:hover {
+    -fx-background-color: -cb-error;
+    -fx-text-fill: white;
+}
+
+.btn-success {
+    -fx-background-color: -cb-success;
+    -fx-text-fill: -cb-text-inverse;
+    -fx-border-color: transparent;
+}
+
+.btn-icon {
+    -fx-background-color: transparent;
+    -fx-text-fill: -cb-text-secondary;
+    -fx-border-color: transparent;
+    -fx-padding: 6 8;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+}
+
+.btn-icon:hover {
+    -fx-text-fill: -cb-text-primary;
+    -fx-background-color: -cb-bg-elevated;
+    -fx-background-radius: 4px;
+}
+
+/* ── Cards / Panels ─────────────────────────────────────────────────────── */
+.card {
+    -fx-background-color: -cb-bg-surface;
+    -fx-border-color: -cb-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 16;
+}
+
+.card-header {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -cb-text-primary;
+    -fx-padding: 0 0 12 0;
+    -fx-border-color: transparent transparent -cb-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.meta-text {
+    -fx-font-size: 11px;
+    -fx-text-fill: -cb-text-muted;
+}
+
+/* ── Chat interface ─────────────────────────────────────────────────────── */
+.chat-container {
+    -fx-background-color: -cb-bg-base;
+    -fx-spacing: 12;
+    -fx-padding: 16 20;
+}
+
+.message-bubble {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-padding: 10 14;
+    -fx-max-width: 680px;
+    -fx-wrap-text: true;
+}
+
+.message-bubble-user {
+    -fx-background-color: -cb-accent-dim;
+    -fx-border-color: transparent;
+}
+
+.message-bubble-assistant {
+    -fx-background-color: -cb-bg-surface;
+    -fx-border-color: -cb-border;
+    -fx-border-width: 1px;
+}
+
+.message-text-user {
+    -fx-text-fill: -cb-accent-text;
+    -fx-font-size: 13px;
+    -fx-wrap-text: true;
+}
+
+.message-text-assistant {
+    -fx-text-fill: -cb-text-primary;
+    -fx-font-size: 13px;
+    -fx-wrap-text: true;
+}
+
+.message-time {
+    -fx-font-size: 10px;
+    -fx-text-fill: -cb-text-muted;
+}
+
+.chat-input-area {
+    -fx-background-color: -cb-bg-surface;
+    -fx-border-color: -cb-border transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 12 20;
+}
+
+.chat-input-field {
+    -fx-pref-height: 44px;
+    -fx-font-size: 13px;
+}
+
+.mode-selector {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-border-color: -cb-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-text-fill: -cb-text-primary;
+    -fx-padding: 4 8;
+}
+
+.mode-selector .list-cell {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-text-fill: -cb-text-primary;
+}
+
+/* ── Conversation list ──────────────────────────────────────────────────── */
+.conv-list {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.conv-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent -cb-border transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 8 12;
+    -fx-text-fill: -cb-text-secondary;
+    -fx-font-size: 12px;
+}
+
+.conv-list .list-cell:selected {
+    -fx-background-color: -cb-accent-dim;
+    -fx-text-fill: -cb-accent-text;
+}
+
+.conv-list .list-cell:hover {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-text-fill: -cb-text-primary;
+}
+
+/* ── List views (general) ───────────────────────────────────────────────── */
+.list-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -cb-text-primary;
+    -fx-padding: 10 14;
+    -fx-border-color: transparent transparent -cb-border transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-size: 13px;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: -cb-accent-dim;
+}
+
+.list-view .list-cell:hover {
+    -fx-background-color: -cb-bg-elevated;
+}
+
+/* ── Tables ─────────────────────────────────────────────────────────────── */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: -cb-border;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-border-color: transparent transparent -cb-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-text-fill: -cb-text-muted;
+    -fx-font-size: 11px;
+    -fx-padding: 8 12;
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -cb-text-muted;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 0.5px;
+}
+
+.table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent -cb-border transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-text-fill: -cb-text-primary;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -cb-accent-dim;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: -cb-bg-elevated;
+}
+
+.table-cell {
+    -fx-text-fill: -cb-text-primary;
+    -fx-font-size: 13px;
+    -fx-padding: 8 12;
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* ── Combo box ──────────────────────────────────────────────────────────── */
+.combo-box {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-border-color: -cb-border;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-text-fill: -cb-text-primary;
+    -fx-padding: 2;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: -cb-text-primary;
+    -fx-background-color: transparent;
+    -fx-padding: 4 8;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-border-color: -cb-border;
+}
+
+.combo-box-popup .list-cell {
+    -fx-text-fill: -cb-text-primary;
+    -fx-background-color: -cb-bg-elevated;
+    -fx-padding: 6 12;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: -cb-accent-dim;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box .arrow {
+    -fx-background-color: -cb-text-muted;
+}
+
+/* ── Check box ──────────────────────────────────────────────────────────── */
+.check-box {
+    -fx-text-fill: -cb-text-primary;
+}
+
+.check-box .box {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-border-color: -cb-border;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+}
+
+.check-box:selected .box {
+    -fx-background-color: -cb-accent;
+    -fx-border-color: -cb-accent;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+/* ── Progress bar ───────────────────────────────────────────────────────── */
+.progress-bar {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-border-color: transparent;
+    -fx-background-radius: 4px;
+    -fx-pref-height: 6px;
+}
+
+.progress-bar .track {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-background-radius: 4px;
+}
+
+.progress-bar .bar {
+    -fx-background-color: -cb-accent;
+    -fx-background-radius: 4px;
+    -fx-background-insets: 0;
+}
+
+/* ── Slider (Mood) ──────────────────────────────────────────────────────── */
+.mood-slider .track {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-border-color: -cb-border;
+    -fx-background-radius: 4px;
+    -fx-pref-height: 6px;
+}
+
+.mood-slider .thumb {
+    -fx-background-color: -cb-accent;
+    -fx-background-radius: 12px;
+    -fx-pref-width: 20px;
+    -fx-pref-height: 20px;
+    -fx-effect: none;
+}
+
+.mood-slider .thumb:hover {
+    -fx-background-color: -cb-accent-hover;
+}
+
+/* ── Split pane ─────────────────────────────────────────────────────────── */
+.split-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.split-pane > .split-pane-divider {
+    -fx-background-color: -cb-border;
+    -fx-padding: 0 1 0 0;
+}
+
+/* ── Separator ──────────────────────────────────────────────────────────── */
+.separator .line {
+    -fx-border-color: -cb-border;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* ── Spinner ────────────────────────────────────────────────────────────── */
+.spinner {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-border-color: -cb-border;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+}
+
+.spinner .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: -cb-text-primary;
+}
+
+/* ── Tab pane ───────────────────────────────────────────────────────────── */
+.tab-pane {
+    -fx-background-color: transparent;
+    -fx-tab-min-height: 34px;
+}
+
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color: -cb-bg-surface;
+    -fx-border-color: transparent transparent -cb-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 6 16;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab .tab-label {
+    -fx-text-fill: -cb-text-muted;
+    -fx-font-size: 12px;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent -cb-accent transparent;
+    -fx-border-width: 0 0 2 0;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected .tab-label {
+    -fx-text-fill: -cb-accent-text;
+    -fx-font-weight: bold;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:hover .tab-label {
+    -fx-text-fill: -cb-text-primary;
+}
+
+.tab-pane > .tab-content-area {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* ── Mood indicators ────────────────────────────────────────────────────── */
+.mood-chip {
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-padding: 3 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.mood-low { -fx-background-color: derive(-cb-mood-1, -40%); -fx-text-fill: -cb-mood-1; }
+.mood-neutral { -fx-background-color: derive(-cb-mood-3, -40%); -fx-text-fill: -cb-mood-3; }
+.mood-good { -fx-background-color: derive(-cb-mood-5, -40%); -fx-text-fill: -cb-mood-5; }
+
+/* ── Priority badges ────────────────────────────────────────────────────── */
+.priority-urgent { -fx-text-fill: #e05555; -fx-font-weight: bold; }
+.priority-high { -fx-text-fill: #f0a23c; }
+.priority-medium { -fx-text-fill: -cb-text-secondary; }
+.priority-low { -fx-text-fill: -cb-text-muted; }
+
+/* ── Status badges ──────────────────────────────────────────────────────── */
+.status-todo { -fx-text-fill: -cb-text-muted; }
+.status-done { -fx-text-fill: -cb-success; }
+.status-active { -fx-text-fill: -cb-accent; }
+.status-paused { -fx-text-fill: -cb-warning; }
+
+/* ── Empty state ────────────────────────────────────────────────────────── */
+.empty-state {
+    -fx-alignment: CENTER;
+    -fx-spacing: 10;
+    -fx-padding: 40;
+}
+
+.empty-state-icon {
+    -fx-font-size: 32px;
+    -fx-text-fill: -cb-text-muted;
+}
+
+.empty-state-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: -cb-text-secondary;
+    -fx-text-alignment: CENTER;
+}
+
+.empty-state-sub {
+    -fx-font-size: 12px;
+    -fx-text-fill: -cb-text-muted;
+    -fx-text-alignment: CENTER;
+}
+
+/* ── Breathing exercise ─────────────────────────────────────────────────── */
+.breathing-circle {
+    -fx-background-color: -cb-accent-dim;
+    -fx-border-color: -cb-accent;
+    -fx-border-width: 2px;
+    -fx-border-radius: 100px;
+    -fx-background-radius: 100px;
+}
+
+.breathing-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: -cb-accent-text;
+    -fx-font-weight: bold;
+}
+
+/* ── Section divider ────────────────────────────────────────────────────── */
+.section-title {
+    -fx-font-size: 11px;
+    -fx-text-fill: -cb-text-muted;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1px;
+    -fx-padding: 0 0 8 0;
+}
+
+/* ── Tooltip ────────────────────────────────────────────────────────────── */
+.tooltip {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-border-color: -cb-border;
+    -fx-border-width: 1px;
+    -fx-text-fill: -cb-text-primary;
+    -fx-font-size: 11px;
+    -fx-padding: 6 10;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-effect: none;
+}
+
+/* ── Memory list ────────────────────────────────────────────────────────── */
+.memory-approved {
+    -fx-border-color: transparent transparent -cb-border transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-padding: 8 0;
+}
+
+.memory-pending {
+    -fx-border-color: transparent transparent -cb-border transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: derive(-cb-warning, -70%);
+    -fx-padding: 8;
+}
+
+.category-badge {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-text-fill: -cb-text-muted;
+    -fx-border-color: -cb-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-font-size: 10px;
+    -fx-padding: 2 8;
+}
+
+/* ── Dashboard ──────────────────────────────────────────────────────────── */
+.dashboard-stat-box {
+    -fx-background-color: -cb-bg-surface;
+    -fx-border-color: -cb-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 16 20;
+    -fx-min-width: 140px;
+}
+
+.stat-number {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -cb-accent;
+}
+
+.stat-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: -cb-text-muted;
+}
+
+/* ── Dialog / modal ─────────────────────────────────────────────────────── */
+.dialog-pane {
+    -fx-background-color: -cb-bg-surface;
+    -fx-border-color: -cb-border;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-padding: 16;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -cb-text-primary;
+}
+
+.dialog-pane .content.label {
+    -fx-text-fill: -cb-text-secondary;
+    -fx-font-size: 13px;
+}
+
+.dialog-pane .button-bar .button {
+    -fx-background-color: -cb-bg-elevated;
+    -fx-text-fill: -cb-text-primary;
+    -fx-border-color: -cb-border;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 7 16;
+}
+
+.dialog-pane .button-bar .button:default {
+    -fx-background-color: -cb-accent;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+
+/* ── Grounding exercise ─────────────────────────────────────────────────── */
+.grounding-item {
+    -fx-background-color: -cb-bg-surface;
+    -fx-border-color: -cb-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 12 16;
+    -fx-spacing: 6;
+}
+
+.grounding-num {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -cb-accent-dim;
+}

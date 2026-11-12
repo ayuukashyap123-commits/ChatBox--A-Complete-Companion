@@ -1,0 +1,12 @@
+SOFTWARE ENGINEERING SENIOR CAPSTONE NOTES
+Project: Chatbox - A Complete Companion
+Author: Ayush Kashyap
+Target: Academic Graduation with Distinction
+
+Key Milestones:
+1. Native Java 21 desktop application using JavaFX and custom dark charcoal/violet theme.
+2. Complete SQLite persistence layer with WAL mode and foreign key integrity.
+3. Six companion modules: Digital Doppelgänger, Multi-mode Chatbox, Mental Wellness, AI Life Coach, Personal Second Brain, and Memory Manager.
+4. Offline demonstration mode with honest fallback messaging when no API key is supplied.
+5. Gemini 1.5 Flash live API integration with JSON payload mapping and streaming architecture readiness.
+6. Rigorous automated test suite with JUnit 5.
